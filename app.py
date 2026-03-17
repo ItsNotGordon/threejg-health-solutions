@@ -32,9 +32,9 @@ for msg in st.session_state.messages:
 # ---------- Welcome message ----------
 if not st.session_state.messages:
     welcome = (
-        "👋 Welcome to our clinic! I'm here to help get you checked in.\n\n"
+        "👋 Welcome to our clinic! My name is Apollo! I'm your personal Healthcare agent here to help get you checked in.\n\n"
         "Could you tell me the reason for your visit today? "
-        "For example, are you here for urgent care or a work-related injury?"
+        "For example, are you here for personal health care or a work-related injury?"
     )
     st.session_state.messages.append({"role": "assistant", "content": welcome})
     with st.chat_message("assistant"):
