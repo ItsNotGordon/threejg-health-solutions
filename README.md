@@ -23,7 +23,7 @@ We plan to incorporate basic machine learning techniques to assist healthcare wo
 # WXO Hackathon Project
 ## Prerequisites
  
-- Python 3.11+
+- Python 3.11+ - Python 3.13
 - A watsonx Orchestrate account (IBM Cloud or AWS)
 - An active Orchestrate environment with agents deployed
  
