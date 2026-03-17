@@ -1,7 +1,8 @@
 kind: native
 name: occupational_health_Agent_7688qz
 display_name: occupational health Agent
-description: Collects occupational health and workers comp intake information from
+description:
+  Collects occupational health and workers comp intake information from
   patients.
 context_access_enabled: true
 context_variables: []
@@ -29,7 +30,7 @@ plugins:
   agent_pre_invoke: []
   agent_post_invoke: []
 knowledge_base:
-- Occupational_Health_Workers_Comp_Intake_20687C
+  - Occupational_Health_Workers_Comp_Intake_20687C
 chat_with_docs:
   enabled: false
   supports_full_document: true
@@ -39,12 +40,14 @@ chat_with_docs:
     limit: 10
     extraction_strategy: express
   generation:
-    prompt_instruction: ''
+    prompt_instruction: ""
     max_docs_passed_to_llm: 5
     generated_response_length: Moderate
-    display_text_no_results_found: I searched my knowledge base, but did not find
+    display_text_no_results_found:
+      I searched my knowledge base, but did not find
       anything related to your query
-    display_text_connectivity_issue: I might have information related to your query
+    display_text_connectivity_issue:
+      I might have information related to your query
       to share, but am unable to connect to my knowledge base at the moment
     idk_message: I'm afraid I don't understand. Please rephrase your question.
     enabled: false
@@ -65,23 +68,25 @@ chat_with_docs:
 starter_prompts:
   is_default_prompts: false
   prompts:
-  - id: default0
-    title: What can you do for me?
-    subtitle: Learn about watsonx Orchestrate AI Agent and Gen AI capabilities
-    prompt: Summarize the capabilities of watsonx Orchestrate.
-    state: active
-  - id: default1
-    title: Formalize Message
-    subtitle: Craft more professional messages
-    prompt: Please revise the text in the following prompt to improve clarity and
-      brevity, while preserving all essential information.
-    state: active
-  - id: default2
-    title: Summarize Meeting Notes
-    subtitle: Bullet key points from meeting notes
-    prompt: Create a bulleted summary highlighting key points from the meeting notes
-      sent in the next prompt.
-    state: active
+    - id: default0
+      title: What can you do for me?
+      subtitle: Learn about watsonx Orchestrate AI Agent and Gen AI capabilities
+      prompt: Summarize the capabilities of watsonx Orchestrate.
+      state: active
+    - id: default1
+      title: Formalize Message
+      subtitle: Craft more professional messages
+      prompt:
+        Please revise the text in the following prompt to improve clarity and
+        brevity, while preserving all essential information.
+      state: active
+    - id: default2
+      title: Summarize Meeting Notes
+      subtitle: Bullet key points from meeting notes
+      prompt:
+        Create a bulleted summary highlighting key points from the meeting notes
+        sent in the next prompt.
+      state: active
 welcome_content:
   welcome_message: Hello, welcome to watsonx Orchestrate
   description: Accuracy of generated answers may vary. Please double-check responses.
