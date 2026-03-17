@@ -1,0 +1,98 @@
+kind: native
+name: agent_Insurance_Eligibility_and_Verification__51871W
+display_name: ' Insurance Eligibility and Verification '
+description: Verifies patient insurance eligibility, looks up covered plans, and handles
+  rejection codes.
+context_access_enabled: true
+context_variables: []
+restrictions: editable
+supported_apps: []
+llm: groq/openai/gpt-oss-120b
+style: react
+hide_reasoning: false
+instructions: |-
+  You are a friendly and professional insurance eligibility and verification specialist.
+
+  Your job is to verify the patient's insurance coverage after they have completed their intake.
+  Consult your knowledge base to look up covered insurance plans, verification procedures, and rejection codes.
+  If you do not have the patient's insurance provider or member ID, ask for them.
+  Look up the plan and report: active/inactive status, network tier, and expected copay or deductible.
+  Walk through the verification steps required for that specific plan type from your knowledge base.
+  If verification fails, translate the rejection code into plain English and provide the resolution procedure from your knowledge base.
+  If the patient communicates in a language other than English, respond in that same language.
+  Once verification is complete, clearly state whether the patient's insurance covers their visit or not.
+  If covered, summarize the plan details, copay, and next steps.
+  If not covered, explain why and suggest alternatives (e.g., self-pay, updated card, contact employer).
+guidelines:
+- display_name: When a collaborator agent responds with questions for the patient  relay
+    those exact questions to the patient word for word. Do not summarize or rephrase
+    them. Relay answers back to collaborator
+  condition: When a collaborator agent responds with questions for the patient
+  action: ' relay those exact questions to the patient word for word. Do not summarize
+    or rephrase them. Relay answers back to collaborator'
+  tool: ''
+collaborators: []
+tools: []
+toolkits: []
+plugins:
+  agent_pre_invoke: []
+  agent_post_invoke: []
+knowledge_base:
+- Insurance_Eligibility_and_Verification_4090wQ
+chat_with_docs:
+  enabled: false
+  supports_full_document: true
+  vector_index:
+    chunk_size: 400
+    chunk_overlap: 50
+    limit: 10
+    extraction_strategy: express
+  generation:
+    prompt_instruction: ''
+    max_docs_passed_to_llm: 5
+    generated_response_length: Moderate
+    display_text_no_results_found: I searched my knowledge base, but did not find
+      anything related to your query
+    display_text_connectivity_issue: I might have information related to your query
+      to share, but am unable to connect to my knowledge base at the moment
+    idk_message: I'm afraid I don't understand. Please rephrase your question.
+    enabled: false
+  query_rewrite:
+    enabled: true
+  confidence_thresholds:
+    retrieval_confidence_threshold: Lowest
+    response_confidence_threshold: Lowest
+  citations:
+    citation_title: How do we know?
+    citations_shown: -1
+  hap_filtering:
+    output:
+      enabled: false
+      threshold: 0.5
+  query_source: Agent
+  agent_query_description: The query to search for in the knowledge base
+starter_prompts:
+  is_default_prompts: false
+  prompts:
+  - id: default0
+    title: What can you do for me?
+    subtitle: Learn about watsonx Orchestrate AI Agent and Gen AI capabilities
+    prompt: Summarize the capabilities of watsonx Orchestrate.
+    state: active
+  - id: default1
+    title: Formalize Message
+    subtitle: Craft more professional messages
+    prompt: Please revise the text in the following prompt to improve clarity and
+      brevity, while preserving all essential information.
+    state: active
+  - id: default2
+    title: Summarize Meeting Notes
+    subtitle: Bullet key points from meeting notes
+    prompt: Create a bulleted summary highlighting key points from the meeting notes
+      sent in the next prompt.
+    state: active
+welcome_content:
+  welcome_message: Hello, welcome to watsonx Orchestrate
+  description: Accuracy of generated answers may vary. Please double-check responses.
+  is_default_message: false
+spec_version: v1
