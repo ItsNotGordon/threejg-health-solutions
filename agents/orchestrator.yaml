@@ -1,0 +1,6 @@
+spec_version: "v1"
+name: "orchestrator"
+description: "Top-level agent that routes tasks to sub-agents"
+llm: ibm/granite-3-8b-instruct
+instructions: |
+  You are a helpful orchestrator. Route user requests to the appropriate agent.

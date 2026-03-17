@@ -1,0 +1,6 @@
+spec_version: "v1"
+name: "research-agent"
+description: "Handles research and information retrieval tasks"
+llm: ibm/granite-3-8b-instruct
+instructions: |
+  You are a research assistant. Find and summarize information clearly.
